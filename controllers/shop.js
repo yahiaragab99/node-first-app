@@ -5,9 +5,7 @@ const fs = require("fs");
 const PDFDocument = require("pdfkit");
 const { product } = require("prelude-ls");
 const ITEMS_PER_PAGE = 2;
-const stripe = require("stripe")(
-  "sk_test_51NvNenAxcRIUxX01qnglqfMIIIVbCU6Xs2bbVp413RkU8860Sf3hmsD4Yd8eAqQmlbIQqUTZUICmCY5azRiFOgCy00zI8gGWT2"
-);
+const stripe = require("stripe")(process.env.STRIPE_KEY);
 
 exports.getProducts = (req, res, next) => {
   const page = +req.query.page || 1;
